@@ -25,3 +25,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Deployment
 gem 'unicorn'
 gem 'capistrano'
+gem 'capistrano-unicorn'
+gem 'rvm-capistrano'

@@ -17,7 +17,7 @@ set :scm, :git
 set :repository,  "git@github.com:OmniSentry/omnisentry.git"
 
 # Setup connection options. Set up your ec2 permissions via ssh-add and this option will allow you to connect
-set :user, "deploy"
+set :user, "ec2-user"
 set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
@@ -41,5 +41,26 @@ require 'bundler/capistrano'
 namespace :bundle do
   task :update do
     run "cd #{current_path} && bundle update"
+  end
+end
+
+require 'capistrano-unicorn'
+
+set :unicorn_pid, '/home/ec2-user/omnisentry/shared/unicorn.pid'
+  
+after 'deploy:start', 'unicorn:start'
+after 'deploy:restart', 'unicorn:reload'
+
+namespace :deploy do
+  task :restart do
+    run "sudo /usr/sbin/nginx -s reload -c /etc/nginx/nginx.conf"
+  end
+
+  task :start do
+    run "sudo /usr/sbin/nginx -c /etc/nginx/nginx.conf"
+  end
+
+  task :migrate do 
+    run "cd #{current_path} && rake db:migrate"
   end
 end
