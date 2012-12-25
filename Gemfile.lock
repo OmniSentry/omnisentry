@@ -160,7 +160,7 @@ DEPENDENCIES
   gitflow
   haml-rails
   jquery-rails
-  libv8
+  libv8 (~> 3.11.8)
   mongoid
   rails (= 3.2.1)
   rvm-capistrano
