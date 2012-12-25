@@ -22,6 +22,8 @@ set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
 
+set :deploy_to, "/home/ec2-user/omnisentry"
+
 # Set up the different roles. These can be different locations for more complex deployments, or the same for simple deployment.
 role :web, location
 role :app, location
