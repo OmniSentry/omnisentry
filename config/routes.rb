@@ -1,4 +1,9 @@
 Omnisentry::Application.routes.draw do
   resources :users
-  root :to => "users#create"
+  resources :user_sessions
+
+  get "log_out" => "user_sessions#destroy", :as => "log_out"
+  get "log_in" => "user_sessions#new", :as => "log_in" 
+
+  root :to => "users#new"
 end
