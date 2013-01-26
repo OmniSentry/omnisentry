@@ -1,4 +1,6 @@
 Omnisentry::Application.routes.draw do
+  resources :items
+
   resources :users
   resources :user_sessions
 
