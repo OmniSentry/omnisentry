@@ -5,5 +5,5 @@ Omnisentry::Application.routes.draw do
   get "log_out" => "user_sessions#destroy", :as => "log_out"
   get "log_in" => "user_sessions#new", :as => "log_in" 
 
-  root :to => "users#new"
+  root :to => "welcome#index"
 end

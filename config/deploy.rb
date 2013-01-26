@@ -4,7 +4,7 @@ require "capistrano/ext/multistage"
 set :application, "omnisentry"
 
 # Where we are deploying to
-set :location, "ec2-23-20-227-105.compute-1.amazonaws.com"
+set :location, "ec2-50-17-7-100.compute-1.amazonaws.com"
 
 # Multistage deployment. Each one of these corresponds to a <env_name>.rb file in config/deploy/ which contains specific options for each stage
 set :stages, ["production"]
@@ -17,7 +17,7 @@ set :scm, :git
 set :repository,  "git@github.com:OmniSentry/omnisentry.git"
 
 # Setup connection options. Set up your ec2 permissions via ssh-add and this option will allow you to connect
-set :user, "ec2-user"
+set :user, "deploy"
 set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
