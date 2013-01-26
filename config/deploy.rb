@@ -15,6 +15,7 @@ set :default_stage, "production"
 set :deploy_via, :copy
 set :scm, :git
 set :repository,  "git@github.com:OmniSentry/omnisentry.git"
+set :branch, $1 if `git branch` =~ /\* (\S+)\s/m
 
 # Setup connection options. Set up your ec2 permissions via ssh-add and this option will allow you to connect
 set :user, "deploy"
