@@ -49,7 +49,7 @@ end
 
 require 'capistrano-unicorn'
 
-set :unicorn_pid, '/home/ec2-user/omnisentry/shared/unicorn.pid'
+set :unicorn_pid, '/home/deploy/omnisentry/shared/pids/unicorn.pid'
   
 after 'deploy:start', 'unicorn:start'
 after 'deploy:restart', 'unicorn:reload'
