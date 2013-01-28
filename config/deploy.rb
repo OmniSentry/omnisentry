@@ -10,6 +10,8 @@ set :location, "ec2-50-17-7-100.compute-1.amazonaws.com"
 set :stages, ["production"]
 set :default_stage, "production"
 
+set :deploy_to, "/home/deploy/omnisentry/"
+
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :deploy_via, :copy
