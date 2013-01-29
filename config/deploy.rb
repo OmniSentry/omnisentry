@@ -56,11 +56,11 @@ after 'deploy:restart', 'unicorn:reload'
 
 namespace :deploy do
   task :restart do
-    run "#{sudo} /usr/sbin/nginx -s reload -c /home/deploy/etc/nginx.conf"
+    run "#{sudo} /usr/sbin/nginx -s reload -c /home/deploy/etc/nginx/nginx.conf"
   end
 
   task :start do
-    run "#{sudo} /usr/sbin/nginx -c /home/deploy/etc/nginx.conf"
+    run "#{sudo} /usr/sbin/nginx -c /home/deploy/etc/nginx/nginx.conf"
   end
 
   task :migrate do 
