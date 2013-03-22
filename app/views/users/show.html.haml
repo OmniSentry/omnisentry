@@ -1,13 +1,15 @@
-%p#notice= notice
-
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Name:
-  = @user.name
-%p
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+.row
+  .span4
+    %h1= "Welcome, #{current_user.name}"
+    %img{"src"=>"http://placehold.it/150x150"}    
+  .span8
+    %h1 Ride History
+    %ul.unstyled
+      %li
+        Total Rides This Month: 10
+      %li
+        Total Charges Accrued: $12.50
+      %li
+        Stops Visited: 30
+      %li
+        Home station: North Hollywood
